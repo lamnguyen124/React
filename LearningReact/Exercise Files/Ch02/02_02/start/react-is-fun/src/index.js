@@ -36,43 +36,105 @@
 // ReactDOM.render(<Message color="blue" msg="how are you?" minutes={5} />, document.getElementById('root')
 // )
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+// import React, { Component } from 'react'
+// import { render } from 'react-dom'
 
-let skiData = {
-    total: 50,
-    powder: 20,
-    backcountry: 10,
-    goal: 100
+// let skiData = {
+//     total: 50,
+//     powder: 20,
+//     backcountry: 10,
+//     goal: 100
+// }
+
+// const getPercent = decimal => {
+//     return decimal * 100 + '%'
+// }
+
+// const calcGoalProgress = (total, goal) => {
+//     return getPercent(total / goal)
+// }
+
+// const SkiDayCounter = ({ total, powder, backcountry, goal }) => {
+//     return (
+//         <section>
+//             <div>
+//                 <p>Total Days: {total}</p>
+//             </div>
+//             <div>
+//                 <p>Powder Days: {powder}</p>
+//             </div>
+//             <div>
+//                 <p>Backcountry Days: {backcountry}</p>
+//             </div>
+//             <div>
+//                 <p>Goal Progress: {calcGoalProgress(total, goal)}</p>
+//             </div>
+//         </section>
+//     )
+// }
+
+// class SkiDayCounter extends Component {
+//     getPercent = decimal => {
+//         return decimal * 100 + '%'
+//     }
+//     calcGoalProgress = (total, goal) => {
+//         return this.getPercent(total / goal)
+//     }
+//     render() {
+//         const { total, powder, backcountry, goal } = this.props
+//         return (
+//             <section>
+//                 <div>
+//                     <p>Total Days: {total}</p>
+//                 </div>
+//                 <div>
+//                     <p>Powder Days: {powder}</p>
+//                 </div>
+//                 <div>
+//                     <p>Backcountry Days: {backcountry}</p>
+//                 </div>
+//                 <div>
+//                     <p>Goal Progress: {this.calcGoalProgress(total, goal)}</p>
+//                 </div>
+//             </section>
+//         )
+//     }
+// }
+
+// render(
+//     <SkiDayCounter
+//         total={skiData.total}
+//         powder={skiData.powder}
+//         backcountry={skiData.backcountry}
+//         goal={skiData.goal}
+//     />,
+//     document.getElementById('root')
+// )
+
+import React, { Component } from 'react'
+import { render } from 'react-dom'
+
+const Book = ({ title, author, pages }) => {
+    return (
+        <section>
+            <h2>{title}</h2>
+            <p>by: {author}</p>
+            <p>Pages: {pages} pages</p>
+        </section>
+    )
 }
 
-class SkiDayCounter extends React.Component {
-    render() {
-        return (
-            <section>
-                <div>
-                    <p>Total Days: {this.props.total}</p>
-                </div>
-                <div>
-                    <p>Powder Days: {this.props.powderK}</p>
-                </div>
-                <div>
-                    <p>Backcountry Days: {this.props.backcountry}</p>
-                </div>
-                <div>
-                    <p>Goal: {this.props.goal}</p>
-                </div>
-            </section>
-        )
-    }
+const Library = () => {
+    return (
+        <div>
+            <Book title="The Sun Also Rises" author="Ernest Hemingway" pages={260} />
+            <Book title="White Teeth" author="Zadie Smith" pages={480} />
+            <Book title="Cat's Cradle" author="Kurt Vonnegut" pages={304} />
+        </div>
+    )
 }
 
-ReactDOM.render(
-    <SkiDayCounter
-        total={skiData.total}
-        powder={skiData.powder}
-        backgcountry={skiData.backcountry}
-        goal={skiData.goal}
-    />,
+render(
+    <Library />,
     document.getElementById('root')
 )
