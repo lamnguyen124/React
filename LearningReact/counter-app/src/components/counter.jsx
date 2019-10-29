@@ -11,38 +11,22 @@ class Counter extends Component {
     //     this.handleIncrement = this.handleIcrement.bind(this);
     // }
 
-    handleIcrement = () => {
-        this.setState({ count: this.state.count + 1 })
+    handleIncrement = product => {
+        console.log(product);
+        this.setState({ count: this.state.count + 1 });
     };
 
-    renderTags() {
-        if (this.state.tags.length === 0)
-            return <p>There are no tags!</p>;
-
-
-
-        return <ul> {
-            this.state.tags.map(tag => <li key={tag}>
-                {tag}</li>)
-        } </ul>
-    }
+    doHandleIncrement = () => {
+        this.handleIncrement({ id: 1 });
+    };
 
     render() {
         return (
-            <React.Fragment>{
-                this.state.tags.length === 0 && "Please create a new tag!"
-            }
-                {
-                    this.renderTags()
-                }<span className={
-                    this.getBadgeClasses()
-                }>
-                    {
-                        this.formatCount()
-                    } </span>
-                <button onClick={
-                    this.handleIcrement
-                }
+            <React.Fragment>
+                <span className={this.getBadgeClasses()}>
+                    {this.formatCount()} 
+                </span>
+                <button onClick= {this.doHandleIncrement}
                     className="btn btn-secondary btn-sm">Increment
                 </button>
             </React.Fragment>
